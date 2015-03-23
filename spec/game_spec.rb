@@ -7,39 +7,53 @@ end
 
 describe Game do
 
-  context "only one cell" do
-    it "one cell will still be dead" do
+  context "axis Y" do
+    it "1 cell" do
       assert_grid [[0]], [[0]]
       assert_grid [[1]], [[0]]
     end
-  end
 
-  context "two cells" do
-    it "two cells will still be dead" do
-      assert_grid [[0], [0]], [[0], [0]]
-      assert_grid [[1], [0]], [[0], [0]]
-      assert_grid [[0], [1]], [[0], [0]]
-      assert_grid [[1], [1]], [[0], [0]]
+    it "2 cells" do
+      assert_grid [[0], [0]],
+                  [[0], [0]]
+      assert_grid [[1], [0]],
+                  [[0], [0]]
+      assert_grid [[0], [1]],
+                  [[0], [0]]
+      assert_grid [[1], [1]],
+                  [[0], [0]]
+    end
+
+    it "3 cells" do
+      assert_grid [[0], [0], [0]],
+                  [[0], [0], [0]]
+      assert_grid [[1], [0], [0]],
+                  [[0], [0], [0]]
+      assert_grid [[1], [1], [0]],
+                  [[0], [0], [0]]
+      assert_grid [[1], [1], [1]],
+                  [[0], [1], [0]]
+    end
+
+    it ">= 4 cells" do
+      assert_grid [[0], [0], [0], [0]],
+                  [[0], [0], [0], [0]]
+      assert_grid [[1], [0], [0], [0]],
+                  [[0], [0], [0], [0]]
+      assert_grid [[1], [1], [0], [0]],
+                  [[0], [0], [0], [0]]
+      assert_grid [[1], [0], [1], [0]],
+                  [[0], [0], [0], [0]]
+      assert_grid [[1], [1], [1], [0]],
+                  [[0], [1], [0], [0]]
+      assert_grid [[0], [1], [1], [1]],
+                  [[0], [0], [1], [0]]
+      assert_grid [[1], [1], [1], [1]],
+                  [[0], [1], [1], [0]]
+
+      assert_grid [[1], [1], [1], [1], [1]],
+                  [[0], [1], [1], [1], [0]]
     end
   end
 
-  context "three cells" do
-    it "three cells" do
-      assert_grid [[0], [0], [0]], [[0], [0], [0]]
-      assert_grid [[1], [0], [0]], [[0], [0], [0]]
-      assert_grid [[1], [1], [0]], [[0], [0], [0]]
-      assert_grid [[1], [1], [1]], [[0], [1], [0]]
-    end
-  end
-
-  context "four cells" do
-    it "four dead cells will die" do
-      assert_grid [[0], [0], [0], [0]], [[0], [0], [0], [0]]
-      assert_grid [[1], [0], [0], [0]], [[0], [0], [0], [0]]
-      assert_grid [[1], [1], [0], [0]], [[0], [0], [0], [0]]
-      assert_grid [[1], [0], [1], [0]], [[0], [0], [0], [0]]
-      assert_grid [[1], [1], [1], [0]], [[0], [1], [0], [0]]
-      # assert_grid [[0], [1], [1], [1]], [[0], [0], [1], [0]]
-    end
-  end
 end

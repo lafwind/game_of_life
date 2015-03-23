@@ -8,11 +8,13 @@ class Game
   end
 
   def tick
-    if alive?(1) && has_2_alive_neighbors?(1)
-      set_alive(1)
-    else
-      @next_tick_grid
+    @grid_length.times do |i|
+      if alive?(i) && has_2_alive_neighbors?(i)
+        set_alive(i)
+      end
     end
+
+    @next_tick_grid
   end
 
   private
