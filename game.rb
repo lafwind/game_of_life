@@ -2,13 +2,13 @@ class Game
 
   def initialize(grid)
     @grid = grid
-    @grid_length = grid.length
 
-    init_grid
+    init_length
+    init_result_grid
   end
 
   def tick
-    @grid_length.times do |i|
+    @y_length.times do |i|
       if alive?(i) && has_2_alive_neighbors?(i)
         set_alive(i)
       end
@@ -19,13 +19,19 @@ class Game
 
   private
 
-  def init_grid
-    # Array.new(@grid_length) { [0] }
-    @next_tick_grid = @grid_length.times.map { [0] }
+  def init_length
+    @x_length = @grid[0].length
+    @y_length = @grid.length
+  end
+
+  def init_result_grid
+    # Array.new(@y_length) { [0] }
+    # cool!
+    @next_tick_grid = @y_length.times.map { [0] * @x_length }
   end
 
   def alive?(i)
-    @grid_length > 1 && @grid[i][0] == 1
+    @y_length > 1 && @grid[i][0] == 1
   end
 
   def set_alive(i)
@@ -42,6 +48,6 @@ class Game
   end
 
   def down_cell_alive?(i)
-    i < @grid_length - 1 && @grid[i+1][0] == 1
+    i < @y_length - 1 && @grid[i+1][0] == 1
   end
 end

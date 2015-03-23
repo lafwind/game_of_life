@@ -56,4 +56,24 @@ describe Game do
     end
   end
 
+  context "axis X" do
+    it "2 cells" do
+      assert_grid [[0, 0]],
+                  [[0, 0]]
+      assert_grid [[1, 0]],
+                  [[0, 0]]
+      assert_grid [[1, 1]],
+                  [[0, 0]]
+    end
+
+    it "3 cells" do
+      assert_grid [[0, 0, 0]],
+                  [[0, 0, 0]]
+      assert_grid [[1, 0, 0]],
+                  [[0, 0, 0]]
+      assert_grid [[1, 1, 0]],
+                  [[0, 0, 0]]
+    end
+  end
+
 end
