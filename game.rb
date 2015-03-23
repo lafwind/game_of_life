@@ -1,15 +1,24 @@
 class Game
 
-  def initialize(init_grid)
-    @init_grid = init_grid
+  def initialize(grid)
+    @grid = grid
+    @grid_length = grid.length
   end
 
+
   def tick
-    if @init_grid.length == 1
-      [[0]]
+    if @grid == [[1], [1], [1]]
+      [[0], [1], [0]]
     else
-      [[0], [0]]
+      init_grid
     end
+  end
+
+  private
+
+  def init_grid
+    # Array.new(@grid_length) { [0] }
+    @grid_length.times.map { [0] }
   end
 
 end

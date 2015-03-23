@@ -23,4 +23,13 @@ describe Game do
     end
   end
 
+  context "three" do
+    it "three cells will die" do
+      assert_grid [[0], [0], [0]], [[0], [0], [0]]
+      assert_grid [[1], [0], [0]], [[0], [0], [0]]
+      assert_grid [[1], [1], [0]], [[0], [0], [0]]
+      assert_grid [[1], [1], [1]], [[0], [1], [0]]
+    end
+  end
+
 end
