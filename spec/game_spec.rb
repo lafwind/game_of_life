@@ -23,8 +23,8 @@ describe Game do
     end
   end
 
-  context "three" do
-    it "three cells will die" do
+  context "three cells" do
+    it "three cells" do
       assert_grid [[0], [0], [0]], [[0], [0], [0]]
       assert_grid [[1], [0], [0]], [[0], [0], [0]]
       assert_grid [[1], [1], [0]], [[0], [0], [0]]
@@ -32,4 +32,14 @@ describe Game do
     end
   end
 
+  context "four cells" do
+    it "four dead cells will die" do
+      assert_grid [[0], [0], [0], [0]], [[0], [0], [0], [0]]
+      assert_grid [[1], [0], [0], [0]], [[0], [0], [0], [0]]
+      assert_grid [[1], [1], [0], [0]], [[0], [0], [0], [0]]
+      assert_grid [[1], [0], [1], [0]], [[0], [0], [0], [0]]
+      assert_grid [[1], [1], [1], [0]], [[0], [1], [0], [0]]
+      # assert_grid [[0], [1], [1], [1]], [[0], [0], [1], [0]]
+    end
+  end
 end
