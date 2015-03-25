@@ -10,7 +10,7 @@ class Game
   def tick
     @y_length.times do |i|
       if alive_y?(i) && has_2_alive_y_neighbors?(i)
-        set_alive(i)
+        set_alive_x(i)
       end
     end
 
@@ -42,9 +42,8 @@ class Game
     @x_length > 1 && @grid[0][j] == 1
   end
 
-  def set_alive(i)
+  def set_alive_x(i)
     @next_tick_grid[i][0] = 1
-    @next_tick_grid
   end
 
   def set_alive_y(j)
