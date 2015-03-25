@@ -15,7 +15,7 @@ class Game
     end
 
     if alive_x?(1) && has_2_alive_x_neighbors?(1)
-      @next_tick_grid = [[0, 1, 0]]
+      set_alive_y(1)
     end
 
     @next_tick_grid
@@ -45,6 +45,10 @@ class Game
   def set_alive(i)
     @next_tick_grid[i][0] = 1
     @next_tick_grid
+  end
+
+  def set_alive_y(j)
+    @next_tick_grid[0][j] = 1
   end
 
   def has_2_alive_y_neighbors?(i)
