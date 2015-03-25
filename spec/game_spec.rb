@@ -66,13 +66,20 @@ describe Game do
                   [[0, 0]]
     end
 
-    it "3 cells" do
-      assert_grid [[0, 0, 0]],
-                  [[0, 0, 0]]
-      assert_grid [[1, 0, 0]],
-                  [[0, 0, 0]]
-      assert_grid [[1, 1, 0]],
-                  [[0, 0, 0]]
+    context "3 cell" do
+      it "all dead" do
+        assert_grid [[0, 0, 0]],
+          [[0, 0, 0]]
+        assert_grid [[1, 0, 0]],
+          [[0, 0, 0]]
+        assert_grid [[1, 1, 0]],
+          [[0, 0, 0]]
+      end
+
+      it "keep alive" do
+        assert_grid [[1, 1, 1]],
+          [[0, 1, 0]]
+      end
     end
   end
 
