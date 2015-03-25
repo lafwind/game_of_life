@@ -85,6 +85,21 @@ describe Game do
           [[0, 1, 0]]
       end
     end
+
+    it "4 cells" do
+      assert_grid [[0, 0, 0, 0]],
+                  [[0, 0, 0, 0]]
+      assert_grid [[1, 0, 0, 0]],
+                  [[0, 0, 0, 0]]
+      assert_grid [[1, 1, 0, 0]],
+                  [[0, 0, 0, 0]]
+      assert_grid [[1, 1, 1, 0]],
+                  [[0, 1, 0, 0]]
+      assert_grid [[0, 1, 1, 1]],
+                  [[0, 0, 1, 0]]
+      assert_grid [[1, 1, 1, 1]],
+                  [[0, 1, 1, 0]]
+    end
   end
 
 end

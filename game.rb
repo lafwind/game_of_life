@@ -10,12 +10,14 @@ class Game
   def tick
     @y_length.times do |i|
       if alive_y?(i) && has_2_alive_y_neighbors?(i)
-        set_alive_x(i)
+        set_alive_y(i)
       end
     end
 
-    if alive_x?(1) && has_2_alive_x_neighbors?(1)
-      set_alive_y(1)
+    @x_length.times do |j|
+      if alive_x?(j) && has_2_alive_x_neighbors?(j)
+        set_alive_x(j)
+      end
     end
 
     @next_tick_grid
@@ -42,11 +44,11 @@ class Game
     @x_length > 1 && @grid[0][j] == 1
   end
 
-  def set_alive_x(i)
+  def set_alive_y(i)
     @next_tick_grid[i][0] = 1
   end
 
-  def set_alive_y(j)
+  def set_alive_x(j)
     @next_tick_grid[0][j] = 1
   end
 
@@ -55,7 +57,15 @@ class Game
   end
 
   def has_2_alive_x_neighbors?(j)
-    @grid[0][j-1] == 1 && @grid[0][j+1] == 1
+    left_cell_alive?(j) && right_cell_alive?(j)
+  end
+
+  def left_cell_alive?(j)
+    j > 0 && @grid[0][j-1] == 1
+  end
+
+  def right_cell_alive?(j)
+    j < @x_length - 1 && @grid[0][j+1] == 1
   end
 
   def up_cell_alive?(i)
